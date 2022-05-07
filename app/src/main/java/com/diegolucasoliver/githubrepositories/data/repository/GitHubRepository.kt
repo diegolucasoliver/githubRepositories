@@ -1,5 +1,6 @@
-package com.diegolucasoliver.githubrepositories.data
+package com.diegolucasoliver.githubrepositories.data.repository
 
+import com.diegolucasoliver.githubrepositories.data.Service
 import com.diegolucasoliver.githubrepositories.data.model.GitHubRepositoriesResponse
 import io.reactivex.rxjava3.core.Single
 
