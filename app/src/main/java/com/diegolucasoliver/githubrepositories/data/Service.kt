@@ -7,9 +7,8 @@ import retrofit2.http.Query
 
 interface Service {
 
-    @GET("/search/repositories?q=language:kotlin")
+    @GET("/search/repositories?q=language:kotlin&sort=stars&per_page=30")
     fun getRepositories(
-        @Query("sort") sort: String,
         @Query("page") page: Int
     ): Single<GitHubRepositoriesResponse>
 }

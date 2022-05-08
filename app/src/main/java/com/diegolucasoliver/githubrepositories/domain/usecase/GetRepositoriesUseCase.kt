@@ -6,11 +6,11 @@ import com.diegolucasoliver.githubrepositories.domain.model.toDomain
 import io.reactivex.rxjava3.core.Single
 
 interface GetRepositoriesUseCase {
-    fun execute(sort: String = "stars", page: Int = 1): Single<GitHubRepositoriesDomain>
+    fun execute(page: Int = 1): Single<GitHubRepositoriesDomain>
 }
 
 class GetRepositoriesUseCaseImpl(val repository: GitHubRepository): GetRepositoriesUseCase {
-    override fun execute(sort: String, page: Int): Single<GitHubRepositoriesDomain> {
-        return repository.getRepositories(sort, page).map { it.toDomain() }
+    override fun execute(page: Int): Single<GitHubRepositoriesDomain> {
+        return repository.getRepositories(page).map { it.toDomain() }
     }
 }
