@@ -5,15 +5,15 @@ import com.diegolucasoliver.githubrepositories.data.model.OwnerResponse
 import com.diegolucasoliver.githubrepositories.data.model.RepositoryResponse
 import com.diegolucasoliver.githubrepositories.utils.orZero
 
-fun OwnerResponse?.toDomain(): OwnerDomain {
-    return OwnerDomain(
+fun OwnerResponse?.toDomain(): Owner {
+    return Owner(
         ownerName = this?.ownerName.orEmpty(),
         avatarUrl = this?.avatarUrl.orEmpty()
     )
 }
 
-fun RepositoryResponse?.toDomain(): RepositoryDomain {
-    return RepositoryDomain(
+fun RepositoryResponse?.toDomain(): Repository {
+    return Repository(
         repoName = this?.repoName.orEmpty(),
         starsCount = this?.starsCount.orZero(),
         forksCount = this?.forksCount.orZero(),
@@ -21,8 +21,8 @@ fun RepositoryResponse?.toDomain(): RepositoryDomain {
     )
 }
 
-fun GitHubRepositoriesResponse?.toDomain(): GitHubRepositoriesDomain {
-    return GitHubRepositoriesDomain(
+fun GitHubRepositoriesResponse?.toDomain(): GitHubRepositories {
+    return GitHubRepositories(
         repositories = this?.repositories?.map { it.toDomain() }.orEmpty()
     )
 }

@@ -4,9 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import com.diegolucasoliver.githubrepositories.R
-import com.diegolucasoliver.githubrepositories.domain.model.RepositoryDomain
+import com.diegolucasoliver.githubrepositories.domain.model.Owner
+import com.diegolucasoliver.githubrepositories.domain.model.Repository
 
 class RepositoryView @JvmOverloads constructor(
     context: Context,
@@ -15,17 +15,30 @@ class RepositoryView @JvmOverloads constructor(
 ): ConstraintLayout(context, attributeSet, defStyleAttr) {
 
     private val repoName: TextView by lazy { findViewById(R.id.tv_repo_name) }
-    private val infoView: InfoView by lazy { findViewById(R.id.info_view) }
+    private val ownerInfo: InfoView by lazy { findViewById(R.id.owner_info) }
+    private val forksInfo: InfoView by lazy { findViewById(R.id.forks_info) }
+    private val starsInfo: InfoView by lazy { findViewById(R.id.stars_info) }
 
     init {
         inflate(context, R.layout.view_repository, this)
     }
 
-    fun bind(repository: RepositoryDomain) {
+    fun bind(repository: Repository) {
         repoName.text = repository.repoName
-        infoView.bind(
-            repository.owner.ownerName,
-            R.drawable.ic_fork
-        )
+        setOwnerInfo(repository.owner)
+        setForksInfo(repository.forksCount)
+        setStarsInfo(repository.starsCount)
+    }
+
+    private fun setOwnerInfo(owner: Owner) {
+        ownerInfo.bind(owner.ownerName, owner.avatarUrl)
+    }
+
+    private fun setForksInfo(forksCount: Int) {
+        forksInfo.bind(forksCount.toString(), R.drawable.ic_fork)
+    }
+
+    private fun setStarsInfo(starsCount: Int) {
+        starsInfo.bind(starsCount.toString(), R.drawable.ic_star)
     }
 }

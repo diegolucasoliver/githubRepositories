@@ -4,22 +4,20 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="8dp"
-    android:background="@android:color/darker_gray">
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/iv_info_icon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         tools:src="@drawable/ic_fork" />
 
     <TextView
         android:id="@+id/tv_info_label"
+        style="@style/TextInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:textSize="12sp"
+        android:layout_marginStart="8dp"
         tools:text="1000" />
 
 </LinearLayout>
