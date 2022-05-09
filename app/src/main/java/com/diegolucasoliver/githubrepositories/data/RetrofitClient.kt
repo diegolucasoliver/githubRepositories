@@ -15,9 +15,9 @@ object RetrofitClient {
 
     private val gson by lazy { KoinPlatformTools.defaultContext().get().get<Gson>() }
 
-    private fun initRetrofit() =
+    private fun initRetrofit(baseUrl: String) =
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .client(client())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
@@ -31,5 +31,5 @@ object RetrofitClient {
         })
         .build()
 
-    val service = initRetrofit().create(Service::class.java)
+    val service = initRetrofit(BASE_URL).create(Service::class.java)
 }
