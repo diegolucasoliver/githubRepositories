@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">Github Repositories</string>
     <string name="loading">Carregando</string>
-    <string name="internet_error">Erro de conexão</string>
     <string name="service_error">Erro %1$s</string>
     <string name="internal_error">Erro interno</string>
 
-    <string name="internet_message">Verifique a conexão e tente novamente.</string>
     <string name="service_message">Ocorreu um erro no serviço.</string>
     <string name="internal_message">Ocorreu um erro ao carregar a lista.</string>
 

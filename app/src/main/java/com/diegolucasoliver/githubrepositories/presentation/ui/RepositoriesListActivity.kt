@@ -57,7 +57,7 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
         hideLoading()
     }
 
-    override fun showEmptyError() {
+    override fun showEmptyListMessage() {
         hideLoading()
         showErrorDialog(
             this.getString(R.string.internal_error),
@@ -70,14 +70,6 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
         showErrorDialog(
             this.getString(R.string.service_error, code),
             this.getString(R.string.service_message)
-        )
-    }
-
-    override fun showInternetError() {
-        hideLoading()
-        showErrorDialog(
-            this.getString(R.string.internet_error),
-            this.getString(R.string.internet_message)
         )
     }
 
@@ -106,6 +98,6 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
                 dialog.dismiss()
             }
         }
-        builder.create()
+        builder.create().show()
     }
 }

@@ -9,7 +9,6 @@ interface RepositoriesListContract {
         fun showRepositories(repositories: List<GitHubRepository>)
         fun showEmptyListMessage()
         fun showError(code: String)
-        fun showInternetError()
     }
 
     interface Presenter {
