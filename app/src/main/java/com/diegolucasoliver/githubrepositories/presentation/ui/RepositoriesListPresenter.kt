@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import retrofit2.HttpException
 import java.io.IOException
 
-private const val FIRST_PAGE = 1
+const val FIRST_PAGE = 1
 
 class RepositoriesListPresenter(
     private val view: View,
@@ -32,9 +32,14 @@ class RepositoriesListPresenter(
         getRepositoriesList()
     }
 
-    override fun getRepositories(page: Int) {
+    override fun getRepositories(nextPage: Int) {
         renderStates(PaginationLoading)
-        getRepositoriesList(page)
+        getRepositoriesList(nextPage)
+    }
+
+    override fun checkCurrentPage(currentPage: Int) {
+        if (currentPage > FIRST_PAGE) getRepositories(currentPage)
+        else getRepositories()
     }
 
     private fun getRepositoriesList(page: Int = FIRST_PAGE) {

@@ -14,6 +14,7 @@ interface RepositoriesListContract {
 
     interface Presenter {
         fun getRepositories()
-        fun getRepositories(page: Int)
+        fun getRepositories(nextPage: Int)
+        fun checkCurrentPage(currentPage: Int)
     }
 }

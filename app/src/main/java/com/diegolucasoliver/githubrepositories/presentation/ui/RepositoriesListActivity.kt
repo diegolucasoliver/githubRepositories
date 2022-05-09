@@ -1,11 +1,13 @@
 package com.diegolucasoliver.githubrepositories.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.diegolucasoliver.githubrepositories.R
 import com.diegolucasoliver.githubrepositories.R.id
 import com.diegolucasoliver.githubrepositories.R.layout
 import com.diegolucasoliver.githubrepositories.domain.model.Repository
@@ -30,8 +32,10 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
     private val scrollEndless: ScrollEndless by lazy {
         ScrollEndless(linearLayoutManager) { page ->
             presenter.getRepositories(page)
+            currentPage = page
         }
     }
+    private var currentPage = FIRST_PAGE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,15 +59,27 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
     }
 
     override fun showEmptyError() {
-        TODO("Not yet implemented")
+        hideLoading()
+        showErrorDialog(
+            this.getString(R.string.internal_error),
+            this.getString(R.string.internal_message)
+        )
     }
 
     override fun showError(code: String) {
-        TODO("Not yet implemented")
+        hideLoading()
+        showErrorDialog(
+            this.getString(R.string.service_error, code),
+            this.getString(R.string.service_message)
+        )
     }
 
     override fun showInternetError() {
-        TODO("Not yet implemented")
+        hideLoading()
+        showErrorDialog(
+            this.getString(R.string.internet_error),
+            this.getString(R.string.internet_message)
+        )
     }
 
     private fun setupListContainer() {
@@ -77,5 +93,20 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
     private fun hideLoading() {
         progressLoading.hide()
         paginationLoading.hide()
+    }
+
+    private fun showErrorDialog(title: String, message: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+            .setMessage(message)
+            .setPositiveButton(this.getString(R.string.positive_button_label)) { _, _ ->
+                presenter.checkCurrentPage(currentPage)
+            }
+        if (currentPage > FIRST_PAGE) {
+            builder.setNegativeButton(this.getString(R.string.negative_button_label)) { dialog, _ ->
+                dialog.dismiss()
+            }
+        }
+        builder.create()
     }
 }
