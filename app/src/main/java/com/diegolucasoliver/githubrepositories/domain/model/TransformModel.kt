@@ -12,8 +12,8 @@ fun OwnerResponse?.toDomain(): Owner {
     )
 }
 
-fun RepositoryResponse?.toDomain(): Repository {
-    return Repository(
+fun RepositoryResponse?.toDomain(): GitHubRepository {
+    return GitHubRepository(
         repoName = this?.repoName.orEmpty(),
         starsCount = this?.starsCount.orZero(),
         forksCount = this?.forksCount.orZero(),

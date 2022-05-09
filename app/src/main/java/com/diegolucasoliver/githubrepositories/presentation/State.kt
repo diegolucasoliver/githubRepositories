@@ -8,5 +8,5 @@ sealed class State {
     object InternetError : State()
     object EmptyError : State()
     data class Error(val code: String) : State()
-    data class Success(val repositories: List<Repository>) : State()
+    data class Success(val repositories: List<GitHubRepository>) : State()
 }

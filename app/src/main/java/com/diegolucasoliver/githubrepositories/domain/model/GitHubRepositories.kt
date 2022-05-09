@@ -4,10 +4,10 @@ import com.diegolucasoliver.githubrepositories.utils.EMPTY_TEXT
 import com.diegolucasoliver.githubrepositories.utils.ZERO_INT
 
 data class GitHubRepositories(
-    val repositories: List<Repository> = emptyList()
+    val repositories: List<GitHubRepository> = emptyList()
 )
 
-data class Repository(
+data class GitHubRepository(
     val repoName: String = EMPTY_TEXT,
     val starsCount: Int = ZERO_INT,
     val forksCount: Int = ZERO_INT,

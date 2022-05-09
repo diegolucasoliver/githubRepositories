@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.diegolucasoliver.githubrepositories.R
 import com.diegolucasoliver.githubrepositories.domain.model.Owner
-import com.diegolucasoliver.githubrepositories.domain.model.Repository
+import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
 
 class RepositoryView @JvmOverloads constructor(
     context: Context,
@@ -23,7 +23,7 @@ class RepositoryView @JvmOverloads constructor(
         inflate(context, R.layout.view_repository, this)
     }
 
-    fun bind(repository: Repository) {
+    fun bind(repository: GitHubRepository) {
         repoName.text = repository.repoName
         setOwnerInfo(repository.owner)
         setForksInfo(repository.forksCount)

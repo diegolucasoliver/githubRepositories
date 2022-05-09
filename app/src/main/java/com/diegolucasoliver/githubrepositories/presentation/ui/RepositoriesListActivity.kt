@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.diegolucasoliver.githubrepositories.R
 import com.diegolucasoliver.githubrepositories.R.id
 import com.diegolucasoliver.githubrepositories.R.layout
-import com.diegolucasoliver.githubrepositories.domain.model.Repository
+import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
 import com.diegolucasoliver.githubrepositories.presentation.adapter.RepositoriesListAdapter
 import com.diegolucasoliver.githubrepositories.presentation.listener.ScrollEndless
 import com.diegolucasoliver.githubrepositories.presentation.ui.RepositoriesListContract.Presenter
@@ -52,7 +52,7 @@ class RepositoriesListActivity : AppCompatActivity(), View, KoinComponent {
         paginationLoading.show()
     }
 
-    override fun showRepositories(repositories: List<Repository>) {
+    override fun showRepositories(repositories: List<GitHubRepository>) {
         repositoriesAdapter.setData(repositories)
         scrollEndless.addedItem()
         hideLoading()

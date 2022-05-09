@@ -2,14 +2,14 @@ package com.diegolucasoliver.githubrepositories.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.diegolucasoliver.githubrepositories.domain.model.Repository
+import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
 import com.diegolucasoliver.githubrepositories.presentation.ui.RepositoryView
 import com.diegolucasoliver.githubrepositories.presentation.adapter.RepositoriesListAdapter.RepositoriesListViewHolder
 
 class RepositoriesListAdapter :
     RecyclerView.Adapter<RepositoriesListViewHolder>() {
 
-    private val repositoryList: MutableList<Repository> = mutableListOf()
+    private val repositoriesList: MutableList<GitHubRepository> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoriesListViewHolder {
         val view = RepositoryView(parent.context)
@@ -17,20 +17,20 @@ class RepositoriesListAdapter :
         return RepositoriesListViewHolder(view)
     }
 
-    override fun getItemCount(): Int = repositoryList.size
+    override fun getItemCount(): Int = repositoriesList.size
 
     override fun onBindViewHolder(holder: RepositoriesListViewHolder, position: Int) {
-        holder.bind(repositoryList[position])
+        holder.bind(repositoriesList[position])
     }
 
-    fun setData(repositories: List<Repository>) {
-        repositoryList.addAll(repositories)
+    fun setData(repositories: List<GitHubRepository>) {
+        repositoriesList.addAll(repositories)
         notifyDataSetChanged()
     }
 
     class RepositoriesListViewHolder(private val view: RepositoryView): RecyclerView.ViewHolder(view) {
 
-        fun bind(repository: Repository) {
+        fun bind(repository: GitHubRepository) {
             view.bind(repository)
         }
     }
