@@ -7,6 +7,5 @@ import com.diegolucasoliver.githubrepositories.data.repository.GitHubRepositoryI
 import org.koin.dsl.module
 
 val dataModule = module {
-    single<Service> { get<RetrofitClient>().service }
-    factory<GitHubRepository> { GitHubRepositoryImpl(service = get()) }
+    factory<GitHubRepository> { GitHubRepositoryImpl(RetrofitClient.service) }
 }

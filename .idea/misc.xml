@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_fork.xml" value="0.2125" />
         <entry key="app/src/main/res/drawable/ic_star.xml" value="0.2125" />
+        <entry key="app/src/main/res/drawable/round_corner.xml" value="0.252" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.32873563218390806" />
+        <entry key="app/src/main/res/layout/activity_repositories_list.xml" value="0.41770833333333335" />
         <entry key="app/src/main/res/layout/view_infos.xml" value="0.403125" />
         <entry key="app/src/main/res/layout/view_repository.xml" value="0.1" />
       </map>

@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubRepositories">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ui.RepositoriesListActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

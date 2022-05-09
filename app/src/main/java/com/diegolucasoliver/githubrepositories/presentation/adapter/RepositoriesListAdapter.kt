@@ -3,7 +3,7 @@ package com.diegolucasoliver.githubrepositories.presentation.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.diegolucasoliver.githubrepositories.domain.model.Repository
-import com.diegolucasoliver.githubrepositories.presentation.RepositoryView
+import com.diegolucasoliver.githubrepositories.presentation.ui.RepositoryView
 import com.diegolucasoliver.githubrepositories.presentation.adapter.RepositoriesListAdapter.RepositoriesListViewHolder
 
 class RepositoriesListAdapter :

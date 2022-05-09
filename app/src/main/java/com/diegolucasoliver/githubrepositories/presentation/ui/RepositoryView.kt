@@ -1,4 +1,4 @@
-package com.diegolucasoliver.githubrepositories.presentation
+package com.diegolucasoliver.githubrepositories.presentation.ui
 
 import android.content.Context
 import android.util.AttributeSet
