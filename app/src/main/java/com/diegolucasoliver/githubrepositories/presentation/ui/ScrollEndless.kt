@@ -1,4 +1,4 @@
-package com.diegolucasoliver.githubrepositories.presentation.listener
+package com.diegolucasoliver.githubrepositories.presentation.ui
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

@@ -12,7 +12,6 @@ import com.diegolucasoliver.githubrepositories.R.id
 import com.diegolucasoliver.githubrepositories.R.layout
 import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
 import com.diegolucasoliver.githubrepositories.presentation.adapter.RepositoriesListAdapter
-import com.diegolucasoliver.githubrepositories.presentation.listener.ScrollEndless
 import com.diegolucasoliver.githubrepositories.presentation.ui.RepositoriesListContract.Presenter
 import com.diegolucasoliver.githubrepositories.presentation.ui.RepositoriesListContract.View
 import com.diegolucasoliver.githubrepositories.utils.hide
