@@ -44,14 +44,15 @@ class RepositoriesListPresenter(
 
     private fun getRepositoriesList(page: Int = FIRST_PAGE) {
         val disposable = useCase.execute(page)
+            .toObservable()
             .compose { schedulerStrategies.applyScheduler(it) }
             .map {
                 if (it.repositories.isEmpty()) EmptyError
                 else Success(it.repositories)
             }
             .onErrorReturn { checkError(it) }
-            .compose { schedulerStrategies.applySchedulerMainThread(it) }
-            .subscribe { renderStates(it) }
+            .doOnNext { renderStates(it) }
+            .subscribe()
         disposables.add(disposable)
     }
 

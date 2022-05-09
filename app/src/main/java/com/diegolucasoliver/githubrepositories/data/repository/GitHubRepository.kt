@@ -6,12 +6,12 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 
 interface GitHubRepository {
-    fun getRepositories(page: Int): Observable<GitHubRepositoriesResponse>
+    fun getRepositories(page: Int): Single<GitHubRepositoriesResponse>
 }
 
 class GitHubRepositoryImpl(private val service: Service): GitHubRepository {
 
-    override fun getRepositories(page: Int): Observable<GitHubRepositoriesResponse> {
+    override fun getRepositories(page: Int): Single<GitHubRepositoriesResponse> {
         return service.getRepositories(page)
     }
 }

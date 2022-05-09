@@ -11,5 +11,5 @@ interface Service {
     @GET("/search/repositories?q=language:kotlin&sort=stars&per_page=30")
     fun getRepositories(
         @Query("page") page: Int
-    ): Observable<GitHubRepositoriesResponse>
+    ): Single<GitHubRepositoriesResponse>
 }
