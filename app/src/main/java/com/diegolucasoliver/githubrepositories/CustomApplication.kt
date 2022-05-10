@@ -1,9 +1,12 @@
 package com.diegolucasoliver.githubrepositories
 
 import android.app.Application
+import com.bumptech.glide.Glide
 import com.diegolucasoliver.githubrepositories.data.di.dataModule
 import com.diegolucasoliver.githubrepositories.domain.di.domainModule
 import com.diegolucasoliver.githubrepositories.presentation.di.presentationModule
+import com.diegolucasoliver.githubrepositories.presentation.ui.ImageLoader
+import com.diegolucasoliver.githubrepositories.presentation.ui.ImageLoaderImpl
 import com.diegolucasoliver.githubrepositories.utils.SchedulerStrategies
 import com.google.gson.Gson
 import org.koin.android.ext.koin.androidContext
@@ -28,10 +31,5 @@ class CustomApplication: Application() {
                 presentationModule
             )
         }
-    }
-
-    private val appModule = module {
-        single { Gson() }
-        single { SchedulerStrategies() }
     }
 }
