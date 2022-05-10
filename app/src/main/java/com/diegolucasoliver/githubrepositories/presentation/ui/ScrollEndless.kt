@@ -32,7 +32,7 @@ class ScrollEndless(
         hasMoreItem = true
     }
 
-    private fun isLastVisibleItem(itemAllCount: Int, lastItemVisible: Int, visibleThreshold: Int): Boolean = (itemAllCount) <= lastItemVisible + visibleThreshold
+    fun isLastVisibleItem(itemAllCount: Int, lastItemVisible: Int, visibleThreshold: Int): Boolean = (itemAllCount) <= lastItemVisible + visibleThreshold
 
-    private fun isLastPage(itemAllCount: Int, currentPage: Int, sizePage: Int = 30): Boolean = itemAllCount / currentPage < sizePage
+    fun isLastPage(itemAllCount: Int, currentPage: Int, sizePage: Int = 30): Boolean = itemAllCount / currentPage < sizePage
 }
