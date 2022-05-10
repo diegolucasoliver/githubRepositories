@@ -3,18 +3,18 @@ package com.diegolucasoliver.githubrepositories.domain.model
 import com.diegolucasoliver.githubrepositories.utils.EMPTY_TEXT
 import com.diegolucasoliver.githubrepositories.utils.ZERO_INT
 
-data class GitHubRepositories(
-    val repositories: List<GitHubRepository> = emptyList()
+data class GitRepositoriesModel(
+    val repositories: List<GitRepositoryModel> = emptyList()
 )
 
-data class GitHubRepository(
+data class GitRepositoryModel(
     val repoName: String = EMPTY_TEXT,
     val starsCount: Int = ZERO_INT,
     val forksCount: Int = ZERO_INT,
-    val owner: Owner = Owner()
+    val owner: OwnerModel = OwnerModel()
 )
 
-data class Owner(
+data class OwnerModel(
     val ownerName: String = EMPTY_TEXT,
     val avatarUrl: String = EMPTY_TEXT
 )

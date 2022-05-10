@@ -2,12 +2,12 @@ package com.diegolucasoliver.githubrepositories.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class GitHubRepositoriesResponse(
+data class GitRepositoriesResponse(
     @SerializedName("items")
-    val repositories: List<RepositoryResponse?>?
+    val repositories: List<GitRepositoryResponse?>?
 )
 
-data class RepositoryResponse(
+data class GitRepositoryResponse(
     @SerializedName("name")
     val repoName: String?,
     @SerializedName("stargazers_count")

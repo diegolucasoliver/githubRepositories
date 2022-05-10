@@ -2,14 +2,14 @@ package com.diegolucasoliver.githubrepositories.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
+import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoryModel
 import com.diegolucasoliver.githubrepositories.presentation.ui.RepositoryView
 import com.diegolucasoliver.githubrepositories.presentation.adapter.RepositoriesListAdapter.RepositoriesListViewHolder
 
 class RepositoriesListAdapter :
     RecyclerView.Adapter<RepositoriesListViewHolder>() {
 
-    private val repositoriesList: MutableList<GitHubRepository> = mutableListOf()
+    private val repositoriesList: MutableList<GitRepositoryModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoriesListViewHolder {
         val view = RepositoryView(parent.context)
@@ -23,14 +23,14 @@ class RepositoriesListAdapter :
         holder.bind(repositoriesList[position])
     }
 
-    fun setData(repositories: List<GitHubRepository>) {
+    fun setData(repositories: List<GitRepositoryModel>) {
         repositoriesList.addAll(repositories)
         notifyDataSetChanged()
     }
 
     class RepositoriesListViewHolder(private val view: RepositoryView): RecyclerView.ViewHolder(view) {
 
-        fun bind(repository: GitHubRepository) {
+        fun bind(repository: GitRepositoryModel) {
             view.bind(repository)
         }
     }

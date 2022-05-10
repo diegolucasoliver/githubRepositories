@@ -1,8 +1,8 @@
 package com.diegolucasoliver.githubrepositories.domain
 
-import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepositories
-import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
-import com.diegolucasoliver.githubrepositories.domain.model.Owner
+import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoriesModel
+import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoryModel
+import com.diegolucasoliver.githubrepositories.domain.model.OwnerModel
 import com.diegolucasoliver.githubrepositories.domain.model.toDomain
 import com.diegolucasoliver.githubrepositories.utils.getGitHubRepositoriesResponse
 import com.diegolucasoliver.githubrepositories.utils.getGitHubRepositoriesResponseNull
@@ -18,7 +18,7 @@ class TransformModelTest {
     @Test
     fun `transform OwnerResponse into Owner`() {
         assertEquals(
-            Owner(
+            OwnerModel(
                 "square",
                 "https://avatars.githubusercontent.com/u/82592?v=4"
             ),
@@ -29,7 +29,7 @@ class TransformModelTest {
     @Test
     fun `transform OwnerResponse null into Owner`() {
         assertEquals(
-            Owner(
+            OwnerModel(
                 "",
                 ""
             ),
@@ -40,11 +40,11 @@ class TransformModelTest {
     @Test
     fun `transform RepositoryResponse into GitHubRepository`() {
         assertEquals(
-            GitHubRepository(
+            GitRepositoryModel(
                 "okhttp",
                 42095,
                 8849,
-                Owner(
+                OwnerModel(
                     "square",
                     "https://avatars.githubusercontent.com/u/82592?v=4"
                 )
@@ -56,11 +56,11 @@ class TransformModelTest {
     @Test
     fun `transform RepositoryResponse null into GitHubRepository`() {
         assertEquals(
-            GitHubRepository(
+            GitRepositoryModel(
                 "",
                 0,
                 0,
-                Owner()
+                OwnerModel()
             ),
             getGitHubRepositoryResponseNull().toDomain()
         )
@@ -69,13 +69,13 @@ class TransformModelTest {
     @Test
     fun `transform GitHubRespositoriesResponse into GitHubRepositories`() {
         assertEquals(
-            GitHubRepositories(
+            GitRepositoriesModel(
                 listOf(
-                    GitHubRepository(
+                    GitRepositoryModel(
                         "okhttp",
                         42095,
                         8849,
-                        Owner(
+                        OwnerModel(
                             "square",
                             "https://avatars.githubusercontent.com/u/82592?v=4"
                         )
@@ -89,7 +89,7 @@ class TransformModelTest {
     @Test
     fun `transform GitHubRespositoriesResponse null into GitHubRepositories`() {
         assertEquals(
-            GitHubRepositories(listOf()),
+            GitRepositoriesModel(listOf()),
             getGitHubRepositoriesResponseNull().toDomain()
         )
     }

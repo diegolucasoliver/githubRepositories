@@ -1,11 +1,11 @@
 package com.diegolucasoliver.githubrepositories.utils
 
-import com.diegolucasoliver.githubrepositories.data.model.GitHubRepositoriesResponse
+import com.diegolucasoliver.githubrepositories.data.model.GitRepositoriesResponse
 import com.diegolucasoliver.githubrepositories.data.model.OwnerResponse
-import com.diegolucasoliver.githubrepositories.data.model.RepositoryResponse
-import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepositories
-import com.diegolucasoliver.githubrepositories.domain.model.GitHubRepository
-import com.diegolucasoliver.githubrepositories.domain.model.Owner
+import com.diegolucasoliver.githubrepositories.data.model.GitRepositoryResponse
+import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoriesModel
+import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoryModel
+import com.diegolucasoliver.githubrepositories.domain.model.OwnerModel
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.HttpException
@@ -31,8 +31,8 @@ fun getOwnerResponseNull(): OwnerResponse? {
     return null
 }
 
-fun getGitHubRepositoryResponse(): RepositoryResponse {
-    return RepositoryResponse(
+fun getGitHubRepositoryResponse(): GitRepositoryResponse {
+    return GitRepositoryResponse(
         "okhttp",
         42095,
         8849,
@@ -40,37 +40,37 @@ fun getGitHubRepositoryResponse(): RepositoryResponse {
     )
 }
 
-fun getGitHubRepositoryResponseNull(): RepositoryResponse? {
+fun getGitHubRepositoryResponseNull(): GitRepositoryResponse? {
     return null
 }
 
-fun getGitHubRepositoriesResponse(): GitHubRepositoriesResponse {
-    return GitHubRepositoriesResponse(
+fun getGitHubRepositoriesResponse(): GitRepositoriesResponse {
+    return GitRepositoriesResponse(
         listOf(getGitHubRepositoryResponse())
     )
 }
 
-fun getGitHubRepositoriesResponseNull(): GitHubRepositoriesResponse? {
+fun getGitHubRepositoriesResponseNull(): GitRepositoriesResponse? {
     return null
 }
 
-fun getMockGitHubRepositories(): GitHubRepositories {
-    return GitHubRepositories(
+fun getMockGitHubRepositories(): GitRepositoriesModel {
+    return GitRepositoriesModel(
         listOf(
-            GitHubRepository(
+            GitRepositoryModel(
                 "okhttp",
                 42095,
                 8849,
-                Owner(
+                OwnerModel(
                     "square",
                     "https://avatars.githubusercontent.com/u/82592?v=4"
                 )
             ),
-            GitHubRepository(
+            GitRepositoryModel(
                 "kotlin",
                 41376,
                 5101,
-                Owner(
+                OwnerModel(
                     "JetBrains",
                     "https://avatars.githubusercontent.com/u/878437?v=4"
                 )
@@ -79,8 +79,8 @@ fun getMockGitHubRepositories(): GitHubRepositories {
     )
 }
 
-fun getMockGitHubRepositoriesEmptyList(): GitHubRepositories {
-    return GitHubRepositories(
+fun getMockGitHubRepositoriesEmptyList(): GitRepositoriesModel {
+    return GitRepositoriesModel(
         listOf()
     )
 }
