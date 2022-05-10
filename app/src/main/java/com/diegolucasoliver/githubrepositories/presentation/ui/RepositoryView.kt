@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.diegolucasoliver.githubrepositories.R
-import com.diegolucasoliver.githubrepositories.domain.model.OwnerModel
 import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoryModel
+import com.diegolucasoliver.githubrepositories.domain.model.OwnerModel
 
 class RepositoryView @JvmOverloads constructor(
     context: Context,

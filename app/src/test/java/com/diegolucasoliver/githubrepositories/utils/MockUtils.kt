@@ -1,8 +1,8 @@
 package com.diegolucasoliver.githubrepositories.utils
 
 import com.diegolucasoliver.githubrepositories.data.model.GitRepositoriesResponse
-import com.diegolucasoliver.githubrepositories.data.model.OwnerResponse
 import com.diegolucasoliver.githubrepositories.data.model.GitRepositoryResponse
+import com.diegolucasoliver.githubrepositories.data.model.OwnerResponse
 import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoriesModel
 import com.diegolucasoliver.githubrepositories.domain.model.GitRepositoryModel
 import com.diegolucasoliver.githubrepositories.domain.model.OwnerModel

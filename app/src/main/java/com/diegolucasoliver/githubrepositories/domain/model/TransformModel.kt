@@ -1,8 +1,8 @@
 package com.diegolucasoliver.githubrepositories.domain.model
 
 import com.diegolucasoliver.githubrepositories.data.model.GitRepositoriesResponse
-import com.diegolucasoliver.githubrepositories.data.model.OwnerResponse
 import com.diegolucasoliver.githubrepositories.data.model.GitRepositoryResponse
+import com.diegolucasoliver.githubrepositories.data.model.OwnerResponse
 import com.diegolucasoliver.githubrepositories.utils.orZero
 
 fun OwnerResponse?.toDomain(): OwnerModel {
